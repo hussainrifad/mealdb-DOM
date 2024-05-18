@@ -39,14 +39,12 @@ const fetchFoodById = async(id) =>{
     const response = await fetch(`${mealUrlById+parseInt(id)}`);
     const data = await response.json();
     meal = data;
-    console.log(data);
     createDetailComponent(meal.meals[0]);
 }
 
 const createFoodComponent = () => {
     const parent = document.body.querySelector("#food-container");
     const foods = allMeal.meals;
-    console.log(foods);
     for(let food of foods){
         let child = document.createElement('div');
         child.innerHTML = `
@@ -71,7 +69,6 @@ const fetchData = async(key) => {
     const response = await fetch(`${url+key}`);
     const data = await response.json();
     allMeal = data;
-    console.log(data);
     createFoodComponent();
 }
 

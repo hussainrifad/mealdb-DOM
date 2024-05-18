@@ -7,7 +7,6 @@ const mealUrlById = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 let meal = {};
 
 const createDetailComponent = (food) => {
-    console.log(food);
     const parent = document.body.querySelector('#detail-container');
     if(parent.hasChildNodes()){
         parent.removeChild(parent.children[0]);
@@ -37,11 +36,10 @@ const createDetailComponent = (food) => {
 }
 
 const fetchFoodById = async(id) =>{
-    const response = await fetch(mealUrlById+parseInt(id),{
-        mode: 'no-cors'
-    });
+    const response = await fetch(`${mealUrlById+parseInt(id)}`);
     const data = await response.json();
     meal = data;
+    console.log(data);
     createDetailComponent(meal.meals[0]);
 }
 
@@ -68,15 +66,12 @@ const createFoodComponent = () => {
     }
 }
 
-
 // fetch meals function 
 const fetchData = async(key) => {
-    console.log(url+key);
-    const response = await fetch(url+key,{
-        mode: 'no-cors'
-    });
+    const response = await fetch(`${url+key}`);
     const data = await response.json();
     allMeal = data;
+    console.log(data);
     createFoodComponent();
 }
 

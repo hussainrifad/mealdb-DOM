@@ -1,9 +1,9 @@
 // Meal by name
-const url = 'http://www.themealdb.com/api/json/v1/1/search.php?s=';
+const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 let allMeal = {};
 
 // Meal by id 
-const mealUrlById = 'http://www.themealdb.com/api/json/v1/1/lookup.php?i=';
+const mealUrlById = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 let meal = {};
 
 const createDetailComponent = (food) => {
